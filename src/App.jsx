@@ -1,7 +1,7 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Navbar from "./components/shared_components/Navbar";
+import Sidebar from "./components/shared_components/Sidebar";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,9 +9,8 @@ function App() {
   return (
     <>
       <div>
-        <p className="text-2xl font-black">
-          Hello world welcome to the youtube clone
-        </p>
+        <Navbar />
+        <Sidebar />
       </div>
     </>
   );

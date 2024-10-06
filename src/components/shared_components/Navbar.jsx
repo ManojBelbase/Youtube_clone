@@ -6,9 +6,10 @@ import { RiVideoAddLine } from "react-icons/ri";
 import { BiBell } from "react-icons/bi";
 import logo from "../../assets/logot.png";
 import profile from "../../assets/profile.jpg";
+
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between px-6 py-1 border">
+    <div className="flex items-center justify-between px-6 py-1 border fixed top-0 w-[100%] z-10 bg-white">
       {/* logo section */}
       <div className="flex items-center gap-4">
         <GiHamburgerMenu className="text-xl cursor-pointer" />

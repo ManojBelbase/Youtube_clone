@@ -182,11 +182,11 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="px-4 mt-16 w-[20%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden">
-      <div className="flex flex-col space-y-1 ">
+    <div className="px-2 mt-16 w-[18%] h-[calc(100vh-6.625rem)] overflow-y-scroll  overflow-x-hidden">
+      <div className="flex flex-col">
         {sidebarItems.map((item) => (
           <div
-            className="flex items-center space-x-5  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
+            className="flex items-center space-x-4  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
             key={item.id}
           >
             <div className="text-xl">{item.icon}</div>
@@ -204,7 +204,7 @@ const Sidebar = () => {
         <div className="flex flex-col space-y-1">
           {sidebarItems2.map((item) => (
             <div
-              className="flex items-center space-x-5  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
+              className="flex items-center space-x-4  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
               key={item.id}
             >
               <div className="text-2xl">{item.icon}</div>
@@ -215,12 +215,12 @@ const Sidebar = () => {
       </div>
       {/* Explore */}
       <hr className="mt-2" />
-      <div className="mt-4">
+      <div className="mt-3">
         <span className="text-lg font-medium p-2">Explore</span>
         <div className="flex flex-col space-y-1">
           {sidebarItems3.map((item) => (
             <div
-              className="flex items-center space-x-5  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
+              className="flex items-center space-x-4  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
               key={item.id}
             >
               <div className="text-xl">{item.icon}</div>
@@ -236,7 +236,7 @@ const Sidebar = () => {
         <div className="flex flex-col space-y-1">
           {sidebarItems4.map((item) => (
             <div
-              className="flex items-center space-x-5  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
+              className="flex items-center space-x-4  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
               key={item.id}
             >
               <div className="text-xl text-red-500">{item.icon}</div>
@@ -251,7 +251,7 @@ const Sidebar = () => {
         <div className="flex flex-col space-y-1">
           {sidebarItems5.map((item) => (
             <div
-              className="flex items-center space-x-5  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
+              className="flex items-center space-x-4  cursor-pointer hover:bg-gray-100 duration-300 rounded-lg p-2"
               key={item.id}
             >
               <div className="text-xl">{item.icon}</div>

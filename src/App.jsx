@@ -1,18 +1,21 @@
-import { useState } from "react";
 import "./App.css";
-import Navbar from "./components/shared_components/Navbar";
-import Sidebar from "./components/shared_components/Sidebar";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import VideoPlaying from "./pages/VideoPlaying";
+import Layout from "./layout/Layout";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <Navbar />
-        <Sidebar />
-      </div>
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/search/:searchQuery" element={<Search />} />
+          <Route path="/video/:id" element={<VideoPlaying />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

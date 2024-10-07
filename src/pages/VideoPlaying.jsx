@@ -21,9 +21,6 @@ const VideoPlaying = () => {
   }, [id]);
 
   const fetchVideoDetails = () => {
-    {
-      loading && <Loading />;
-    }
     fetchData(`video/details/?id=${id}`).then((res) => {
       setVideo(res);
       console.log(res);
@@ -31,9 +28,6 @@ const VideoPlaying = () => {
   };
 
   const fetchRelatedVideos = () => {
-    {
-      loading && <Loading />;
-    }
     fetchData(`video/related-contents/?id=${id}`).then((res) => {
       setRelatedVideos(res.contents); // Accessing 'contents' array
       console.log(res);

@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthProvider";
 
 const Home = () => {
   const { data } = useAuth();
+  console.log(data);
   return (
     <div className="h-[calc(100vh-6.625rem)] overflow-y-scroll  overflow-x-hidden">
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 rounded-xl">

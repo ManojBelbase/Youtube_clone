@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchData } from "../api/rapidapi";
 import SearchCard from "./SearchCard";
+import Loading from "../loader/Loading";
 
 const Search = () => {
   const [result, setResult] = useState([]); // Initialize as an empty array
@@ -21,7 +22,9 @@ const Search = () => {
     <div className="h-[calc(100vh-6.625rem)] overflow-y-scroll  overflow-x-hidden">
       <div className="grid grid-cols-1 gap-4 rounded-xl">
         {result.length === 0 ? ( // Check if no results
-          <div>No results found.</div>
+          <div>
+            <Loading />
+          </div>
         ) : (
           result.map((item, i) => {
             if (item?.type !== "video") return null; // Safely handle non-video types

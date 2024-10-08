@@ -22,7 +22,7 @@ const Layout = () => {
         {!isPlayingVideo && <Sidebar sidebar={sidebar} />}
         <div
           className={`mt-16 flex-1 mx-2 ${
-            isPlayingVideo ? "mx-2 md:mx-10 w-full" : "ml-2 w-[87%] md:w-[80%]"
+            isPlayingVideo ? "mx-2 md:mx-10 w-full" : "ml-2 w-[85%] md:w-[80%]"
           }`}
         >
           {loading && <Loading />}

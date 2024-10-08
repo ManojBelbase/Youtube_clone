@@ -20,7 +20,7 @@ const Layout = () => {
         {!isPlayingVideo && <Sidebar />}
         <div
           className={`mt-16 ${
-            isPlayingVideo ? "mx-10 w-full" : "ml-2 w-[80%]"
+            isPlayingVideo ? "mx-10 w-full" : "ml-2 w-[95%] md:w-[80%]"
           }`}
         >
           {loading && <Loading />}

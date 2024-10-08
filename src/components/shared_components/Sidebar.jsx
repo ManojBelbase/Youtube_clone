@@ -182,7 +182,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="px-2 mt-16 w-[18%] h-[calc(100vh-6.625rem)] overflow-y-scroll  overflow-x-hidden">
+    <div className="px-2 mt-16 hidden md:block w-[18%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden">
       <div className="flex flex-col">
         {sidebarItems.map((item) => (
           <div

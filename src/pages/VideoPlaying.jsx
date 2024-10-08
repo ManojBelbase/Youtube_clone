@@ -34,7 +34,6 @@ const VideoPlaying = () => {
     });
   };
 
-  // Function to format likes
   const formatLikes = (likes) => {
     if (likes >= 1000000) {
       return (likes / 1000000).toFixed(1) + "M"; // Millions
@@ -45,16 +44,15 @@ const VideoPlaying = () => {
     return likes;
   };
 
-  // Handle clicking on related video
   const handleRelatedVideoClick = (videoId) => {
-    navigate(`/video/${videoId}`); // Navigate to the new video's route
+    navigate(`/video/${videoId}`);
   };
 
   return (
-    <div className="md:flex items-start gap-3">
+    <div className="flex flex-col md:flex-row items-start gap-3 px-4 md:px-8">
       {/* Video Player Section */}
       <div className="md:w-[65%] w-full">
-        <div className="h-[200px] md:h-[400px] rounded-xl overflow-hidden">
+        <div className="h-[200px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden">
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             height="100%"
@@ -66,12 +64,14 @@ const VideoPlaying = () => {
         </div>
 
         {/* Video Details */}
-        <div className="mt-2">
-          <h1 className="text-2xl font-semibold">{video?.title}</h1>
-          <div className="flex items-center justify-between mt-2">
+        <div className="mt-3">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-semibold">
+            {video?.title}
+          </h1>
+          <div className="flex flex-col sm:flex-row justify-between mt-2">
             {/* Channel Profile and Subscribe Button */}
             <div className="flex items-center gap-2">
-              <div className="h-10 w-10 rounded-full">
+              <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                 <img
                   src={video?.author?.avatar[0]?.url}
                   alt="Channel Avatar"
@@ -79,31 +79,34 @@ const VideoPlaying = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold">{video?.author?.title}</span>
-                <span className="text-sm text-gray-600">
+                <span className="font-semibold text-sm sm:text-base">
+                  {video?.author?.title}
+                </span>
+                <span className="text-xs sm:text-sm text-gray-600">
                   {video?.author?.stats?.subscribersText
                     ? video?.author?.stats?.subscribersText + " subscribers"
                     : null}
                 </span>
               </div>
-              <button className="bg-black px-3 py-1 text-white rounded-full ml-5 font-normal">
+              <button className="bg-black px-2 sm:px-3 py-1 text-white rounded-full ml-5 text-xs sm:text-sm">
                 Subscribe
               </button>
             </div>
 
             {/* Like, Dislike, Share Buttons */}
-            <div className="flex gap-2">
-              <div className="border px-3 py-1 bg-gray-200 flex items-center gap-2 rounded-full hover:bg-gray-300 cursor-pointer">
-                <BiSolidLike className="text-xl" />
-                <span className="border-r-[1.5px] pr-4 border-gray-400">
+            <div className="flex gap-2 mt-2 sm:mt-0">
+              <div className="border px-2 sm:px-3 py-1 bg-gray-200 flex items-center gap-2 rounded-full hover:bg-gray-300 cursor-pointer">
+                <BiSolidLike className="text-lg sm:text-xl" />
+                <span className="border-r-[1.5px] pr-2 sm:pr-4 border-gray-400">
                   {formatLikes(video?.stats?.likes)}
                 </span>
-                <BiSolidDislike className="text-xl" />
+                <BiSolidDislike className="text-lg sm:text-xl" />
               </div>
-              <div className="border px-3 py-1 bg-gray-200 flex items-center gap-2 rounded-full hover:bg-gray-300 cursor-pointer">
-                <PiShareFatThin className="text-xl" /> <span>Share</span>
+              <div className="border px-2 sm:px-3 py-1 bg-gray-200 flex items-center gap-2 rounded-full hover:bg-gray-300 cursor-pointer">
+                <PiShareFatThin className="text-lg sm:text-xl" />{" "}
+                <span>Share</span>
               </div>
-              <div className="bg-gray-200 hover:bg-gray-300 h-10 w-10 rounded-full flex items-center">
+              <div className="bg-gray-200 hover:bg-gray-300 h-8 w-8 sm:h-10 sm:w-10 rounded-full flex items-center">
                 <RxDotsHorizontal className="h-full w-full text-base p-2" />
               </div>
             </div>
@@ -111,7 +114,7 @@ const VideoPlaying = () => {
 
           {/* Description Section */}
           <div className="bg-gray-200 w-full rounded-lg p-2 my-2">
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-sm sm:text-base">
               <span>
                 {video?.stats?.views
                   ? `${formatIndianNumber(video?.stats?.views)} views`
@@ -119,12 +122,12 @@ const VideoPlaying = () => {
               </span>
               <span>{video?.publishedDateTime}</span>
             </p>
-            <span>{video?.description}</span>
+            <span className="text-sm sm:text-base">{video?.description}</span>
           </div>
 
           {/* Comments */}
           <div className="">
-            <span className="text-xl font-semibold">
+            <span className="text-lg sm:text-xl font-semibold">
               {video?.stats?.comments
                 ? `${video?.stats?.comments} Comments`
                 : ""}
@@ -134,8 +137,8 @@ const VideoPlaying = () => {
       </div>
 
       {/* Related Videos Section */}
-      <div className="md:w-[35%] w-full h-screen overflow-y-scroll  overflow-x-hidden">
-        <h2 className="font-bold mb-4">Related Videos</h2>
+      <div className="md:w-[35%] w-full h-[400px] md:h-screen overflow-y-scroll overflow-x-hidden">
+        <h2 className="font-bold text-lg sm:text-xl mb-4">Related Videos</h2>
         {relatedVideos?.map(
           (item, index) =>
             item.type === "video" && (
@@ -145,18 +148,19 @@ const VideoPlaying = () => {
                 onClick={() => handleRelatedVideoClick(item.video.videoId)}
               >
                 <img
-                  className="rounded-lg"
+                  className="rounded-lg w-[120px] sm:w-[168px]"
                   src={item.video.thumbnails[0].url}
                   alt={item.video.title}
-                  width={168}
                   height={94}
                 />
                 <div className="ml-4">
-                  <h3 className="text-sm font-semibold">{item.video.title}</h3>
-                  <p className="text-xs text-gray-600">
+                  <h3 className="text-sm font-semibold line-clamp-2">
+                    {item.video.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600">
                     {item.video.author.title}
                   </p>
-                  <p className="text-xs">
+                  <p className="text-xs sm:text-sm">
                     {formatIndianNumber(item.video.stats?.views)} views •{" "}
                     {item.video.publishedTimeText}
                   </p>

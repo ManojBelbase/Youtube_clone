@@ -8,7 +8,7 @@ import logo from "../../assets/logot.png";
 import profile from "../../assets/profile.jpg";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setSidebar }) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -26,7 +26,10 @@ const Navbar = () => {
     <div className="flex items-center justify-between px-6 py-1 border fixed top-0 w-[100%] z-10 bg-white">
       {/* logo section */}
       <div className="flex items-center gap-4">
-        <GiHamburgerMenu className="text-xl cursor-pointer" />
+        <GiHamburgerMenu
+          className="text-xl cursor-pointer"
+          onClick={() => setSidebar((prev) => (prev === false ? true : false))}
+        />
         <p className="w-24 hidden md:block">
           <img src={logo} alt="logo" className="h-full w-full cursor-pointer" />
         </p>

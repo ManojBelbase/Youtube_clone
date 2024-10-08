@@ -52,7 +52,7 @@ const VideoPlaying = () => {
     <div className="flex flex-col md:flex-row items-start gap-3 px-4 md:px-8">
       {/* Video Player Section */}
       <div className="md:w-[65%] w-full">
-        <div className="h-[200px] sm:h-[300px] md:h-[400px] rounded-xl overflow-hidden">
+        <div className="h-[300px] sm:h-[400px] md:h-[450px] rounded-xl overflow-hidden">
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
             height="100%"
@@ -138,7 +138,6 @@ const VideoPlaying = () => {
 
       {/* Related Videos Section */}
       <div className="md:w-[35%] w-full h-[400px] md:h-screen overflow-y-scroll overflow-x-hidden">
-        <h2 className="font-bold text-lg sm:text-xl mb-4">Related Videos</h2>
         {relatedVideos?.map(
           (item, index) =>
             item.type === "video" && (

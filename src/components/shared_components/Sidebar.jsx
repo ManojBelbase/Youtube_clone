@@ -30,7 +30,7 @@ import { MdOutlinedFlag } from "react-icons/md";
 import { TfiHelpAlt } from "react-icons/tfi";
 import { RiFeedbackLine } from "react-icons/ri";
 
-const Sidebar = () => {
+const Sidebar = ({ sidebar }) => {
   const sidebarItems = [
     {
       id: 1,
@@ -182,7 +182,11 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="px-2 mt-16 hidden md:block w-[18%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden">
+    <div
+      className={`px-2 mt-16 ${
+        sidebar ? "w-[5%]" : "w-[17%]"
+      } md:block h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden`}
+    >
       <div className="flex flex-col">
         {sidebarItems.map((item) => (
           <div
@@ -198,7 +202,9 @@ const Sidebar = () => {
       <hr className="mt-2" />
       <div className="mt-4">
         <div className="flex items-center space-x-2 p-2">
-          <span className="text-lg font-medium">You</span>
+          <span className={`${sidebar ? "hidden" : "text-lg font-medium"}`}>
+            You
+          </span>
           <FaChevronRight className="font-thin text-xs" />
         </div>
         <div className="flex flex-col space-y-1">
@@ -216,7 +222,13 @@ const Sidebar = () => {
       {/* Explore */}
       <hr className="mt-2" />
       <div className="mt-3">
-        <span className="text-lg font-medium p-2">Explore</span>
+        <span
+          className={`${
+            sidebar ? "hidden" : "text-lg font-medium p-2"
+          } md:block hidden`}
+        >
+          Explore
+        </span>
         <div className="flex flex-col space-y-1">
           {sidebarItems3.map((item) => (
             <div
@@ -232,7 +244,13 @@ const Sidebar = () => {
       {/* More from youtube */}
       <hr className="mt-2" />
       <div className="mt-4">
-        <span className="text-lg font-medium p-2">More from YouTube</span>
+        <span
+          className={`${
+            sidebar ? "hidden" : "text-lg font-medium p-2"
+          } md:block hidden`}
+        >
+          More from YouTube
+        </span>
         <div className="flex flex-col space-y-1">
           {sidebarItems4.map((item) => (
             <div
@@ -262,8 +280,8 @@ const Sidebar = () => {
       </div>
       {/*  */}
       <hr className="mt-2" />
-      <div className="mt-2">
-        <span className="text-xs text-gray-500 font-semibold cursor-pointer">
+      <div className={`${sidebar ? "hidden" : "mt-2"}`}>
+        <span className="text-xs text-gray-500 font-semibold cursor-pointer md:block hidden">
           About Press Copyright <br />
           Contact us Creator Advertise <br /> Developers
           <br />

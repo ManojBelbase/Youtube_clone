@@ -73,7 +73,11 @@ const VideoPlaying = () => {
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                 <img
-                  src={video?.author?.avatar[0]?.url}
+                  src={
+                    video?.author?.avatar && video.author.avatar.length > 0
+                      ? video.author.avatar[0].url
+                      : "/path/to/default-avatar.jpg"
+                  }
                   alt="Channel Avatar"
                   className="h-full w-full rounded-full"
                 />
